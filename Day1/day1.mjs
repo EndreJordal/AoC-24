@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const lines = fs.readFileSync("day1.txt", "utf8").split("\n");
+const lines = fs.readFileSync("data.txt", "utf8").split("\n");
 const left = [];
 const right = [];
 
