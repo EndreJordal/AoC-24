@@ -20,7 +20,7 @@ for (const line of lines) {
   ascend = report[0] < report[1];
 
   let isUnsafe = false;
-  let errorToleranceUsed = false;
+
   for (let i = 0; i < report.length - 1; i++) {
     if (
       (ascend && report[i] > report[i + 1]) ||
@@ -28,14 +28,10 @@ for (const line of lines) {
       Math.abs(report[i] - report[i + 1]) > 3 ||
       report[i] === report[i + 1]
     ) {
-      if (!errorToleranceUsed) {
-        errorToleranceUsed = true;
-      } else {
-        unsafeReport++;
-        // console.log("unsafe: ", report);
-        isUnsafe = true;
-        break;
-      }
+      unsafeReport++;
+      // console.log("unsafe: ", report);
+      isUnsafe = true;
+      break;
     }
   }
   if (!isUnsafe) {
@@ -44,3 +40,5 @@ for (const line of lines) {
   }
 }
 console.log(unsafeReport, safeReport);
+
+// PART 2
