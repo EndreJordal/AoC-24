@@ -3,6 +3,7 @@ import fs from "fs";
 const grid = fs.readFileSync("data.txt", "utf8").split("\n");
 // console.log(grid);
 const pos = { x: 0, y: 0 };
+const visitedCoordinates = new Set();
 for (let i = 0; i < grid.length; i++) {
   const startPos = grid[i].indexOf("^");
   if (startPos !== -1) {
@@ -14,7 +15,6 @@ for (let i = 0; i < grid.length; i++) {
 }
 
 let direction = "N";
-const visitedCoordinates = new Set();
 while (pos.x < grid[0].length || pos.y < grid.length) {
   while (true) {
     if (direction === "N") {
